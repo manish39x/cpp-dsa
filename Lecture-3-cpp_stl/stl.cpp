@@ -25,7 +25,6 @@ void explainVector()
   vc.push_back(1);
   vc.emplace_back(2);
   // TODO: google about why emplace_back is faster compare to push back;
-
   vector<pair<int, int>> vc2;
   vc2.push_back({2, 4});
   vc2.emplace_back(2, 6);
