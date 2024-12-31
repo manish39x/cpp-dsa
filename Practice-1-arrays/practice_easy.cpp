@@ -220,12 +220,118 @@ void singleNumber(vector<int> nums)
   cout << xore << endl;
 }
 //
+void longestSubarraySumK(vector<int> nums, int k)
+{
+  int length = 0;
+  int counter = 0;
+  int testCube = 0;
+
+  for (int i = 0; i < nums.size(); i++)
+  {
+    if (testCube + nums[i] != k)
+    {
+      if (k < 0 && testCube + nums[i] < k)
+      {
+        counter = 0;
+        testCube = 0 + nums[i];
+      }
+      else if (k > 0 && testCube + nums[i] > k)
+      {
+        counter = 0;
+        testCube = 0 + nums[i];
+      }
+      else
+      {
+        testCube = testCube + nums[i];
+      }
+    }
+    else if (testCube + nums[i] == k)
+    {
+      length = max(length, (counter + 1));
+      counter = 0;
+      testCube = 0 + nums[i];
+    }
+    counter++;
+  }
+  cout << length << endl;
+}
 //
+//
+//
+// tc = O(n); // dutch national flag algoritm
+void sortBits2(vector<int> &nums)
+{
+  int low = 0;
+  int mid = 0;
+  int high = nums.size() - 1;
+  while (mid <= high)
+  {
+    if (nums[mid] == 0)
+    {
+      swap(nums[low], nums[mid]);
+      low++;
+      mid++;
+    }
+    else if (nums[mid] == 1)
+    {
+      mid++;
+    }
+    else if (nums[mid] == 2)
+    {
+      swap(nums[mid], nums[high]);
+      high--;
+    }
+    cout << low << ", " << mid << "," << high << endl;
+  }
+}
+//
+//
+//
+// tc = O(n) and if not sure majority exist or not it's O(2n)
+// moose's votting algorithm
+int majorityElement(vector<int> nums)
+{
+  int el = -1;
+  int count = 0;
+  for (int i = 0; i < nums.size(); i++)
+  {
+    if (count == 0)
+    {
+      el = nums[i];
+      count = 1;
+    }
+    else if (nums[i] == el)
+    {
+      count++;
+    }
+    else
+    {
+      count--;
+    }
+  }
+  // cout << el << endl;
+  // if its guarented that majority element exist then el is the result but if
+  // it's not then we have to check.
+  int cnt = 0;
+  for (int i = 0; i < nums.size(); i++)
+  {
+    if (nums[i] == el)
+      cnt++;
+    if (cnt > (nums.size() / 2))
+    {
+      cout << el << endl;
+      return el;
+    }
+  }
+  cout << -1 << endl;
+  return -1;
+}
 
 int main()
 {
-  vector<int> arr = {1, 1, 0, 1, 1, 1};
-  vector<int> arr1 = {2, 2, 3, 3, 5}; // 1, 2, 3, 5, 6, 7, 9, 10
+  // vector<int> arr = {1, 1, 0, 1, 1, 1};
+  // vector<int> bit2 = {1, 0, 0, 2, 2, 0, 1, 2, 0};
+  // vector<int> arr1 = {1, 2, 4, 5, 2, 1, 1, 1, 1}; // 1, 2, 3, 5, 6, 7, 9, 10
   // find_second_largest_element(arr);
   // find_largest_element(arr);
   // is_sorted(arr);
@@ -236,13 +342,17 @@ int main()
   // union_array(arr, arr1);
   // missingNumber(arr);
   // findMaxConsecutiveOnes(arr);
-  singleNumber(arr1);
+  // singleNumber(arr1);
+  // longestSubarraySumK(arr1, 3);
   //
-  //
+  // sortBits2(bit2);
   //
   //
 
-  // for (auto it : arr)
+  vector<int> nums = {3, 2, 3, 5, 3};
+  majorityElement(nums);
+
+  // for (auto it : bit2)
   // {
   //   cout << it << " ";
   // }
