@@ -327,6 +327,29 @@ int majorityElement(vector<int> nums)
   return -1;
 }
 
+void maximunSubarray(vector<int> nums)
+{
+  int highestSum = nums[0];
+  int sum = 0;
+  int left = 0;
+  int right = 0;
+  for (int i = 0; i < nums.size(); i++)
+  {
+    if (sum == 0)
+      left = i;
+    sum += nums[i];
+    if (sum > highestSum)
+    {
+      highestSum = sum;
+      right = i;
+    }
+    if (sum <= 0)
+      sum = 0;
+  }
+  cout << highestSum << endl;
+  cout << left << " , " << right << endl;
+}
+
 int main()
 {
   // vector<int> arr = {1, 1, 0, 1, 1, 1};
@@ -348,9 +371,11 @@ int main()
   // sortBits2(bit2);
   //
   //
+  vector<int> arrx = {-2, -3, 4, -1, -2, 1, 5, -3};
+  maximunSubarray(arrx);
 
-  vector<int> nums = {3, 2, 3, 5, 3};
-  majorityElement(nums);
+  // vector<int> nums = {3, 2, 3, 5, 3};
+  // majorityElement(nums);
 
   // for (auto it : bit2)
   // {
