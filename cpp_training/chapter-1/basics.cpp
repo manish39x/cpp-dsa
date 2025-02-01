@@ -10,11 +10,18 @@ int sqrt(float n)
 
 int main()
 {
-  int x = 22222;
-  cout << sizeof(x) << endl;
+  int x = 999999999999;
+  cout << x;
 
   return 0;
 }
+
+// cout << sizeof(x) << endl;
+// cout << sizeof('d') << endl;
+// cout << sizeof("") << endl;
+// cout << (358495845994949) << endl;
+// cout << sizeof(true) << endl;
+
 /* CODE'S 0 & 1 FORM[BINARY, DECIMAL, OCTAL, HEXADECIMAL]
   int number1 = 15;         // Decimal
   int number2 = 017;        // Octal
