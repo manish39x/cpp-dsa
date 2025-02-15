@@ -371,8 +371,19 @@ int main()
   // sortBits2(bit2);
   //
   //
-  vector<int> arrx = {-2, -3, 4, -1, -2, 1, 5, -3};
-  maximunSubarray(arrx);
+  // vector<int> arrx = {-2, -3, 4, -1, -2, 1, 5, -3};
+  // maximunSubarray(arrx);
+  // -================================================
+  // int x = 11;
+  // int binary = 0;
+  // while (x > 0)
+  // {
+  //   binary = (binary * 10) + (x % 2);
+  //   cout << (x % 2) << endl;
+  //   x /= 2;
+  // }
+  // cout << binary << endl;
+  // -================================================
 
   // vector<int> nums = {3, 2, 3, 5, 3};
   // majorityElement(nums);
